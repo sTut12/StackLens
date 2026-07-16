@@ -19,6 +19,9 @@ export interface AnalysisResult {
     status_code: number
     https: boolean
     speed_rating: string
+    compression?: boolean
+  server?: string
+  cache_control?: string
   }
   from_cache: boolean
   ollama_used: boolean
