@@ -36,6 +36,16 @@ from db.firebase    import get_cached, set_cache, save_history
 # ── Rate limiter setup ───────────────────────────────────────────
 limiter = Limiter(key_func=get_remote_address)
 app     = FastAPI(title="StackLens API", version="1.0.0")
+# ── Vercel Services path handling ───────────────────────────────
+@app.middleware("http")
+async def strip_vercel_api_prefix(request: Request, call_next):
+    prefix = "/svc/api"
+
+    if request.scope["path"].startswith(prefix):
+        request.scope["path"] = request.scope["path"][len(prefix):] or "/"
+        request.scope["root_path"] = prefix
+
+    return await call_next(request)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
