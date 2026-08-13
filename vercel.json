@@ -2,7 +2,15 @@
   "services": {
     "frontend": {
       "root": "frontend/",
-      "framework": "nextjs"
+      "framework": "nextjs",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "backend",
+          "format": "url",
+          "env": "NEXT_PUBLIC_API_URL"
+        }
+      ]
     },
     "backend": {
       "root": "backend/",
@@ -10,12 +18,6 @@
     }
   },
   "rewrites": [
-    {
-      "source": "/svc/api/:path*",
-      "destination": {
-        "service": "backend"
-      }
-    },
     {
       "source": "/(.*)",
       "destination": {
