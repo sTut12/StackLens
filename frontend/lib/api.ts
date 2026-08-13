@@ -42,7 +42,7 @@ async function authHeaders(): Promise<Record<string, string>> {
  */
 export async function analyzeUrl(url: string): Promise<AnalysisResult> {
   const headers = await authHeaders()
-  const { data } = await API.post('/api/analyze', { url }, { headers })
+  const { data } = await API.post('/analyze', { url }, { headers })
   return data
 }
 
@@ -51,7 +51,7 @@ export async function analyzeUrl(url: string): Promise<AnalysisResult> {
  */
 export async function getHistory(): Promise<HistoryItem[]> {
   const headers = await authHeaders()
-  const { data } = await API.get('/api/history', { headers })
+  const { data } = await API.get('/history', { headers })
   return data.history || []
 }
 
