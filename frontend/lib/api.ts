@@ -8,7 +8,7 @@ import { AnalysisResult, HistoryItem } from '@/types'
 import { getAuth } from 'firebase/auth'
 
 const API = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
+  baseURL: process.env.NEXT_PUBLIC_API_URL || '/svc/api',
   timeout: 90000, // 90s for slow Ollama responses
 })
 
