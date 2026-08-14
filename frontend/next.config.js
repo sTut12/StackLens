@@ -36,7 +36,7 @@ const securityHeaders = [
       // Images: self + data URIs (for the cursor SVG)
       "img-src 'self' data: https:",
       // API connections: self + backend + Firebase
-      "connect-src 'self' http://localhost:8000 https://*.googleapis.com https://*.firebaseio.com https://*.firebase.com wss://*.firebaseio.com",
+     "connect-src 'self' http://localhost:8000 https://stacklens-backend-ku4w.onrender.com https://*.googleapis.com https://*.firebaseio.com https://*.firebase.com wss://*.firebaseio.com",
       // No iframes, no plugins, no objects
       "frame-src 'none'",
       "object-src 'none'",
